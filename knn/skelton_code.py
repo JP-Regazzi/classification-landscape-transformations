@@ -7,18 +7,21 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 import numpy as np
 
-
 from sklearn.neighbors import KNeighborsClassifier
-
 from sklearn.metrics import accuracy_score
+
+import sys
+import os
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+
 
 change_type_map = {'Demolition': 0, 'Road': 1, 'Residential': 2, 'Commercial': 3, 'Industrial': 4,
        'Mega Projects': 5}
-
+ 
 ## Read csvs
 
-train_df = gpd.read_file('train.geojson', index_col=0)
-test_df = gpd.read_file('test.geojson', index_col=0)
+train_df = gpd.read_file(f'{BASE_PATH}/data/train.geojson', index_col=0, rows=10)
+test_df = gpd.read_file(f'{BASE_PATH}/data/test.geojson', index_col=0, rows=10)
 
 ## Filtering column "mail_type"
 train_x = np.asarray(train_df[['geometry']].area)
