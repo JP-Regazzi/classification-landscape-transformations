@@ -5,9 +5,9 @@ import os
 # General
 BASE_PATH = os.getcwd()
 
-NEW_FILE_NAME = "data/10samples.geojson"
+NEW_FILE_NAME = "data/1000samples.geojson"
 
-N_SAMPLES = 10
+N_SAMPLES = 1000
 
 ## Read data
 train_df = gpd.read_file(f'{BASE_PATH}/data/train.geojson', index_col=0)
